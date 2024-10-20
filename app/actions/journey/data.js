@@ -32,6 +32,12 @@ export const fetchProduct = async () => {
             };
         }
 
+        if (authenticatedUser?.daily_available_order === authenticatedUser?.today_order) return {
+            message: `Destinations completed at current tier level`,
+            status: 502,
+            type: "danger"
+        };
+
         // check journey product
         let journeyProduct;
         if (authenticatedUser?.journey !== null) {
@@ -258,16 +264,26 @@ export const fetchProduct = async () => {
 
         } else {
             if (journeyProduct?.isJourneyProduct) {
-                const deduction = journeyProduct?.productPrice * membership?.ticket_commission;
+
+                let deduction = journeyProduct?.productPrice * membership?.ticket_commission;
                 // calculateBalance = (authenticatedUser?.balance - product?.productPrice) - deduction;
                 calculateBalance = (authenticatedUser?.balance - product?.productPrice);
                 calculateCommission = product?.productPrice * membership?.ticket_commission;
                 calculatedCommission = authenticatedUser?.today_commission + calculateCommission;
 
-                const negativeValue = authenticatedUser?.balance - product?.productPrice;
-                const netFrozeAmount = product?.productPrice - Math.abs(negativeValue);
-                // const calFrozeAmount = authenticatedUser?.froze_amount + Math.abs(netFrozeAmount) + deduction;
-                const calFrozeAmount = authenticatedUser?.froze_amount + Math.abs(netFrozeAmount);
+                let negativeValue;
+                let netFrozeAmount;
+                let calFrozeAmount;
+
+                if (authenticatedUser?.balance > product?.productPrice) {
+                    negativeValue = authenticatedUser?.balance - product?.productPrice;
+                    netFrozeAmount = product?.productPrice;
+                    calFrozeAmount = authenticatedUser?.froze_amount + Math.abs(netFrozeAmount);
+                } else {
+                    negativeValue = authenticatedUser?.balance - product?.productPrice;
+                    netFrozeAmount = product?.productPrice - Math.abs(negativeValue);
+                    calFrozeAmount = authenticatedUser?.froze_amount + Math.abs(netFrozeAmount);
+                }
 
                 await User.findByIdAndUpdate(authenticatedUser?._id, {
                     balance: calculateBalance?.toFixed(2),

@@ -16,9 +16,6 @@ import contentlogo2 from "@/public/journey-page/contentlogo2.png";
 import contentlogo3 from "@/public/journey-page/contentlogo3.png";
 
 
-
-
-
 export const dynamic = "force-dynamic";
 
 const page = async () => {

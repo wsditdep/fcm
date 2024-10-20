@@ -55,7 +55,7 @@ const ValidateJourney = () => {
     }, []);
     return (
         <>
-            <form action={handleForm}>
+            <form action={handleForm} translate="no">
                 {
                     isPressed
                         ?

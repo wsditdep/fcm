@@ -1,7 +1,5 @@
 "use client";
 
-import successImg from "@/public/success/success.gif";
-import SuccessModal from '../successModal/SuccessModal';
 import { submitJourney } from '@/app/actions/journey/action';
 import toast from "react-hot-toast";
 import { useFormStatus } from "react-dom";
@@ -86,19 +84,13 @@ const SubmitJourney = () => {
         handleProduct();
     }, []);
 
-
-
     const [rating, setRating] = useState(0);
-
 
     const handleClick = (index) => {
         setRating(index + 1);
 
         console.log(index)
     };
-
-
-
 
     const reviews = [
         { id: 1, data: "The hotel is filled with amazing actors who truly make the film." },
@@ -113,18 +105,11 @@ const SubmitJourney = () => {
         { id: 10, data: "This is the only best hotel I have ever recommended in my life." }
     ];
 
-
-
     const [isCommand, setIsCommand] = useState("Comment Good Review");
-
 
     const manage_review = (commandValue) => {
         setIsCommand(commandValue)
     }
-
-
-
-
 
     return (
         <>
@@ -153,8 +138,6 @@ const SubmitJourney = () => {
                     :
                     <></>
             }
-
-
 
             <section className="submit-journey-section" style={{
                 backgroundImage: `url(${blurbg.src})`,
@@ -293,13 +276,9 @@ const SubmitJourney = () => {
                                     </div>
                                 )}
                             </Popup>
-
-
-
-
                             <div className="submit-button">
                                 <div className="submit-btn mt2">
-                                    <form action={handleForm}>
+                                    <form action={handleForm} translate="no">
                                         {
                                             isPressed
                                                 ?
@@ -313,11 +292,7 @@ const SubmitJourney = () => {
                         </div>
                     </div>
                 </div>
-
-
-
             </section>
-
         </>
     )
 }

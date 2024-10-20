@@ -269,7 +269,7 @@ export const withdrawal = async (formData) => {
             type: "danger"
         };
 
-        if (authenticatedUser?.balance < Number(amount)) return {
+        if (authenticatedUser?.balance?.toFixed(2) < Number(amount)) return {
             message: `Your account has $${authenticatedUser?.balance} and you have entered $${amount} for withdrawal. Insufficient balance!`,
             status: 404,
             type: "danger"
@@ -297,7 +297,8 @@ export const withdrawal = async (formData) => {
             };
         }
 
-        const calAmount = authenticatedUser?.balance - Number(amount);
+        const accBal = authenticatedUser?.balance?.toFixed(2);
+        const calAmount = accBal - Number(amount);
 
         if (authenticatedUser?.withdrawal === null) {
             const walletData = {

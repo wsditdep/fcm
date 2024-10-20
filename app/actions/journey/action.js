@@ -92,7 +92,7 @@ export const submitJourney = async () => {
         const refundAmount = isPendingProductObject?.productPrice;
         const calculateCommission = commissionRate * isPendingProductObject?.productPrice;
         const calculatedRefundAmount = authenticatedUser?.balance + refundAmount;
-        const calculateStage = authenticatedUser?.today_order + 1
+        const calculateStage = authenticatedUser?.today_order + 1;
 
         const calculateFinalBalance = calculatedRefundAmount + calculateCommission;
         // const calculateFinalCommission = authenticatedUser?.today_commission + calculateCommission;

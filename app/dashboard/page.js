@@ -18,9 +18,6 @@ import Dogglewindow from "@/components/doggleWindow/Dogglewindow";
 import Navbar from "@/components/navBar/Navbar";
 import Link from "next/link";
 
-
-
-
 const page = async () => {
 
     const { user } = await auth();
