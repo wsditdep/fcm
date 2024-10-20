@@ -40,6 +40,7 @@ const SubmitJourney = () => {
     const [myState, setMyState] = useState({});
     const [loading, setLoading] = useState(true);
     const [isPressed, setIsPressed] = useState(false);
+    const [isNextData, setIsNextData] = useState(false);
 
     const handleForm = async () => {
         try {
@@ -47,7 +48,10 @@ const SubmitJourney = () => {
 
             if (response.status === 201) {
                 if (response?.isNextJourney) {
-                    window.location.reload();
+                    setIsNextData(true);
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, [3000])
                 }
                 else {
                     toast.success(response.message);
@@ -139,6 +143,15 @@ const SubmitJourney = () => {
                     <></>
             }
 
+            {
+                isNextData
+                    ?
+                    <div className="fetchNextData">
+                        <h3>Please wait....Matching next data <i className="fa fa-spinner"></i></h3>
+                    </div>
+                    :
+                    <></>
+            }
             <section className="submit-journey-section" style={{
                 backgroundImage: `url(${blurbg.src})`,
                 height: '100%',
