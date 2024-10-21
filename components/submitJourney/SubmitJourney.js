@@ -131,7 +131,7 @@ const SubmitJourney = () => {
                     :
                     <></>
             }
-            {
+            {/* {
                 myState?.product?.isJourneyProduct
                     ?
                     <Confetti
@@ -141,7 +141,7 @@ const SubmitJourney = () => {
                     />
                     :
                     <></>
-            }
+            } */}
 
             {
                 isNextData
