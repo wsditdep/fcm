@@ -762,31 +762,48 @@
                     display: flex;
 
                     .submit-journey-child {
-                        flex: 1;
+                        display: flex;
                         padding: 0rem 2rem;
-                        padding-bottom: 1em;
+                        padding-bottom: 1.5em;
                         border-bottom: 1.9px solid #e6e6e6;
 
                         &:first-child {
-                            padding-right: 0.5rem;
+                            display: flex;
+                            justify-content: start;
 
-                            img {
-                                height: 100%;
-                                width: 100%;
-                                border-radius: 2rem;
+                            .pruduct-container {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 15rem;
+                                width: 12rem;
+                                border-radius: 1rem;
+                                overflow: hidden;
+
+                                img {
+                                    height: 16rem;
+                                    width: 100%;
+                                    object-fit: cover;
+                                    object-position: center;
+                                }
                             }
                         }
 
+
+
                         &:last-child {
-                            padding-left: 0.5rem;
+                            display: flex;
+                            flex-direction: column;
+                            padding-left: 0;
 
                             h2 {
                                 padding: 1rem 0rem;
-                                font-size: 2rem;
+                                padding-top: 0;
+                                font-size: 1.7rem;
                             }
 
                             p {
-                                font-size: 1.2rem;
+                                font-size: 1.05rem;
                                 color: #7e7e7e;
                             }
                         }
@@ -2707,7 +2724,7 @@
 
                                 img {
                                     height: auto;
-                                    width: 2.8rem;
+                                    width: 2.7rem;
                                 }
                             }
 
@@ -2718,7 +2735,7 @@
 
                                 h3 {
                                     font-weight: 400;
-                                    font-size: 1.5rem;
+                                    font-size: 1.35rem;
                                 }
                             }
                         }
@@ -2755,12 +2772,12 @@
 
                         img {
                             height: auto;
-                            width: 2.8rem !important;
+                            width: 2.7rem !important;
                         }
 
                         p {
                             margin-left: 1.8rem;
-                            font-size: 1.5rem;
+                            font-size: 1.35rem;
                             font-weight: 400;
                             color: black;
                         }
@@ -2797,8 +2814,8 @@
 
                             p {
                                 color: red;
-                                font-size: 1.3rem;
-                                font-weight: 600;
+                                font-size: 1.35rem;
+                                font-weight: 500;
                                 text-decoration: underline;
                             }
 
@@ -4102,9 +4119,11 @@
     justify-content: center;
     align-items: center;
     z-index: 12;
+
     h3 {
         color: white;
         font-size: 1.2rem;
+
         i {
             animation: spinerAnimation 0.5s ease-in-out infinite;
         }
@@ -4184,6 +4203,7 @@
         .img-container {
             img {}
         }
+
         .go685806154 {
             .go1858758034 {}
 

@@ -180,17 +180,19 @@ const SubmitJourney = () => {
                             </div>
                             <div className="submit-journey-image-parent">
                                 <div className="submit-journey-child">
-                                    {
-                                        myState && myState.product && (
-                                            <Image
-                                                src={myState?.product?.url ?? ""}
-                                                height={100}
-                                                width={100}
-                                                alt="logo"
-                                                unoptimized
-                                            />
-                                        )
-                                    }
+                                    <div className='pruduct-container'>
+                                        {
+                                            myState && myState.product && (
+                                                <Image
+                                                    src={myState?.product?.url ?? ""}
+                                                    height={100}
+                                                    width={100}
+                                                    alt="logo"
+                                                    unoptimized
+                                                />
+                                            )
+                                        }
+                                    </div>
                                 </div>
                                 <div className="submit-journey-child">
                                     <h2>{myState?.product?.productName ?? ""}</h2>

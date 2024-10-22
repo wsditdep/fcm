@@ -14,7 +14,7 @@ const Breadcrumb = ({ link, title, activeWithdrawalHistory, activeRechargeHistor
                 <Link href={link}>
                     <i className="fa fa-angle-left"></i>
                 </Link>
-                <h2 className={lastWord === "support" ? "white" : ""}>{title}</h2>
+                <h2 className={lastWord === "support" || lastWord === "invite" ? "white" : ""}>{title}</h2>
             </div>
             <div className="breadcrumb-wrapper-childs">
                 {
