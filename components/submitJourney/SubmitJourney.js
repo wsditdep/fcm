@@ -170,7 +170,7 @@ const SubmitJourney = () => {
                         <div className="submit-journey-wrapper">
                             <div className="submit-head-parent">
                                 <div className="submit-head-child">
-                                    <h2>Home page</h2>
+                                    <h2>Booking package</h2>
                                 </div>
                                 <Link href="/dashboard/booking" >
                                     <div className="submit-head-child">
